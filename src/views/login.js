@@ -1,4 +1,5 @@
 "use client";
+import { CircularProgress } from "@mui/material";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -8,10 +9,12 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 export default function Login() {
   const [togglePassword, setTogglePassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { handleSubmit, control } = useForm();
   const onSubmit = async (e) => {
     setErrorMessage("");
+    setLoading(true);
     try {
       const response = await signIn("credentials", {
         ...e,
@@ -26,6 +29,8 @@ export default function Login() {
       }
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -125,7 +130,11 @@ export default function Login() {
               </div>
             </div>
             <button className="w-full h-12 flex items-center justify-center font-RalewayExtraBold text-xl text-[#1E5AF9] bg-white rounded-full uppercase">
-              login
+              {loading ? (
+                <CircularProgress size={"1.5rem"} color="inherit" />
+              ) : (
+                "login"
+              )}
             </button>
             <div className="bg-white w-full h-[2px]"></div>
           </div>

@@ -6,11 +6,19 @@ import BasicModal from "@/components/modals/basicModal";
 import PasswordForm from "@/components/pageComponents/dashboard/passwordForm";
 import { ChangePassword } from "@/libs/functions";
 import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-export default function UserDashboard() {
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
+export default function UserDashboard({ item }) {
   const [modal, setModal] = useState();
   const [message, setMessage] = useState();
   const [openDialog, setOpenDialog] = useState(false);
@@ -33,7 +41,7 @@ export default function UserDashboard() {
 
   return (
     <div>
-      <div className="w-full h-[25vh] bg-[#1E5AF9]">
+      <div className="w-full h-fit bg-[#1E5AF9]">
         <div className="w-full p-6 pb-0">
           <div className="flex w-full justify-between ">
             <div>
@@ -62,7 +70,7 @@ export default function UserDashboard() {
           handleClose={() => setOpenDialog(false)}
         />
 
-        {/* <div className="w-full p-6">
+        <div className="w-full p-6">
           <div className="flex w-full justify-between items-end">
             <div className="font-RalewayBold text-white">Lihat Calon</div>
             <Link href="/dashboard/candidates">
@@ -71,7 +79,43 @@ export default function UserDashboard() {
               </div>
             </Link>
           </div>
-        </div> */}
+        </div>
+        <div className="w-full">
+          <Swiper
+            slidesPerView={1.3}
+            spaceBetween={0}
+            centeredSlides={false}
+            pagination={{
+              el: ".slider_banner",
+              clickable: true,
+            }}
+            modules={[Pagination]}
+          >
+            {item.map((data, index) => (
+              <SwiperSlide key={index}>
+                <Link href={`/dashboard/candidates/${data._id}`}>
+                  <div className="w-full flex justify-center bg-transparent">
+                    <div className="w-[90%] bg-white overflow-hidden rounded-lg relative z-0">
+                      <div className="w-full aspect-[11/6]">
+                        <Image
+                          src={data.image}
+                          alt={data.image}
+                          sizes="100vh"
+                          fill
+                          priority
+                          className="h-full w-auto object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className="w-full flex justify-center">
+            <div className="dot-carousel slider_banner py-4"></div>
+          </div>
+        </div>
       </div>
       <div className="w-full h-[65vh]">
         <div className="p-6">
