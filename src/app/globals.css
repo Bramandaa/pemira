@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Lato-Regular";
+  src: url("/fonts/Lato/Lato-Regular/Lato-Regular.woff2") format("woff2"),
+    url("/fonts/Lato/Lato-Regular/Lato-Regular.woff") format("woff"),
+    url("/fonts/Lato/Lato-Regular/Lato-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lato-Medium";
+  src: url("/fonts/Lato/Lato-Medium/Lato-Medium.woff2") format("woff2"),
+    url("/fonts/Lato/Lato-Medium/Lato-Medium.woff") format("woff"),
+    url("/fonts/Lato/Lato-Medium/Lato-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url("/fonts/Raleway/Raleway-Regular/Raleway-Regular.woff2")
+      format("woff2"),
+    url("/fonts/Raleway/Raleway-Regular/Raleway-Regular.woff") format("woff"),
+    url("/fonts/Raleway/Raleway-Regular/Raleway-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url("/fonts/Raleway/Raleway-Bold/Raleway-Bold.woff2") format("woff2"),
+    url("/fonts/Raleway/Raleway-Bold/Raleway-Bold.woff") format("woff"),
+    url("/fonts/Raleway/Raleway-Bold/Raleway-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway-Medium";
+  src: url("/fonts/Raleway/Raleway-Medium/Raleway-Medium.woff2") format("woff2"),
+    url("/fonts/Raleway/Raleway-Medium/Raleway-Medium.woff") format("woff"),
+    url("/fonts/Raleway/Raleway-Medium/Raleway-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway-ExtraBold";
+  src: url("/fonts/Raleway/Raleway-ExtraBold/Raleway-ExtraBold.woff2")
+      format("woff2"),
+    url("/fonts/Raleway/Raleway-ExtraBold/Raleway-ExtraBold.woff")
+      format("woff"),
+    url("/fonts/Raleway/Raleway-ExtraBold/Raleway-ExtraBold.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
