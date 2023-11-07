@@ -35,8 +35,8 @@ export default function UserDashboard({ item }) {
     setOpenDialog(true);
   };
   const Logout = async () => {
-    const res = await signOut({ redirect: false });
     router.replace("/login");
+    await signOut({ redirect: false });
   };
 
   return (

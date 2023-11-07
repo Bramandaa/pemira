@@ -33,6 +33,7 @@ export async function GET() {
         id_candidate: 1,
         vote_count: 1,
         "candidateData.image": 1,
+        "candidateData.nomor": 1,
       },
     },
   ]);

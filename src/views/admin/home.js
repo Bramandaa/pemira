@@ -20,7 +20,9 @@ export default function Home({ item }) {
                 className="h-full w-auto object-cover"
               />
             </div>
-            <div className="font-RalewayBold">Pasangan Calon {index + 1}</div>
+            <div className="font-RalewayBold">
+              Pasangan Calon {data.candidateData[0].nomor}
+            </div>
             <div className="font-RalewayMedium">
               {`${data.vote_count} Suara dari ${item.totalUser} mahasiswa`}
             </div>
